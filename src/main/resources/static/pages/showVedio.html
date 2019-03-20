@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello</title>
+	<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js" charset="utf-8"></script>
+</head>
+<body>
+	<h1>上传成功预览</h1>
+	<div id="id_test_video" style="width:100%; height:auto;"></div>	
+	<script type="text/javascript">
+	var player =  new TcPlayer('id_test_video', {
+		"m3u8": "http://1258859120.vod2.myqcloud.com/86395672vodsh1258859120/3706725e5285890786998923322/f0.mp4",
+		"flv": "http://1258859120.vod2.myqcloud.com/86395672vodsh1258859120/3706725e5285890786998923322/f0.mp4", //增加了一个flv的播放地址，用于PC平台的播放 请替换成实际可用的播放地址
+		"autoplay" : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+		"coverpic" : "http://1258859120.vod2.myqcloud.com/86395672vodsh1258859120/3706725e5285890786998923322/5285890786998923323.jpg",
+		"width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
+		"height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
+		});		
+            
+	</script>
+	
+</body>
+</html>

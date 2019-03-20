@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello</title>
+	<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js" charset="utf-8"></script>
+	<script src="/bt_vedio/js/jquery-3.3.1.min.js" charset="utf-8"></script>
+</head>
+<body>
+	<h1>上传成功预览</h1>
+	<div id="id_test_video" style="width:100%; height:auto;"></div>
+	<form method="post" id="form_file">
+		<input id="file" name="file" type="file">
+		<button id="video_btn" type="button">上传</button>
+	</form>
+	<script type="text/javascript">
+	function upload(){
+        var form = new FormData(document.getElementById("form_file"));
+        $.ajax({
+            url:"/bt_vedio/bl-tencent/vedio/upload",
+            type:"post",
+            data:form,
+            processData:false,
+            contentType:false,
+            success:function(data){
+            	if(data.success){
+            		$('#video_file').val('');
+            		initShow(data.data.mediaUrl);
+            	}
+            	
+            	
+            },
+            error:function(e){
+                
+            }
+        });        
+    }
+	
+	function initShow(vedioUrl){
+		new TcPlayer('id_test_video', {
+			"m3u8": vedioUrl,
+			"flv": vedioUrl,
+			"autoplay" : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+			"width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
+			"height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
+			});	
+		
+	}	
+          $('#video_btn').click(function(){
+          	var video_file=$('#video_file').val();
+          	if(video_file!=''){
+          		upload();
+          	}
+          	
+          });
+            
+	</script>
+	
+</body>
+</html>

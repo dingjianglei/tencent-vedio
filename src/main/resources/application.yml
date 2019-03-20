@@ -1,0 +1,20 @@
+server:
+  port: 9001
+  context-path: /bt_vedio
+  display-name: bl-tecent-vedio
+spring:
+  http:
+    multipart:
+      max-file-size: 20Mb
+      max-request-size: 20Mb
+  mvc:
+    static-path-pattern: /**
+  application:
+    name: tecent-vedio  
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+tecent: 
+  secretId: 你的secretId
+  secretKey: 你的secretId
+  region: ap-shanghai
